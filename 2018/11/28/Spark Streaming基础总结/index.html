@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="here is a breif description.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="YHY">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Spark Streaming基础总结">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="here is a breif description.">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="YHY">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://yoursite.comhttp://5b0988e595225.cdn.sohucs.com/images/20171228/d23ddc1b124b4626a679f21d74ace733.jpeg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://yoursite.comhttp://5b0988e595225.cdn.sohucs.com/images/20171228/d23ddc1b124b4626a679f21d74ace733.jpeg">
+    
+
+    <!-- Title -->
+    
+    <title>Spark Streaming基础总结 - YHY</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">YHY</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://5b0988e595225.cdn.sohucs.com/images/20171228/d23ddc1b124b4626a679f21d74ace733.jpeg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Spark Streaming基础总结</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-11-28
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Spark-Streaming基础总结"><a href="#Spark-Streaming基础总结" class="headerlink" title="Spark Streaming基础总结"></a>Spark Streaming基础总结</h1><p>最近在看Spark的相关东西，主要包括Spark的基础知识、Spark Streaming等，写了一些总结。</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1  Introduction"></a>1  Introduction</h2><p>从时间维度可以将数据分析分为历史数据的分析和实时数据的分析，例如Hive可以实现对于历史全量数据的计算，但是花费时间往往较长。实际场景中，如“双11”各大电商平台实时计算当前订单的情况时，需要实时对各个订单的数据依次进行采集、分析处理、存储等步骤，对于数据处理的速度要求很高，而且需要保持一段时期内不间断的运行。对于这类问题，Spark通过Spark Streaming组件提供了支持，Spark Streaming可以实现对于高吞吐量、实时的数据流的处理和分析，支持多样化的数据源如Kafka、Flume、HDFS、Kinesis和Twitter等。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1325174/201811/1325174-20181128104422188-1614555531.jpg" alt="spark-streaming"></p>
+<h2 id="2-DStream-Model"><a href="#2-DStream-Model" class="headerlink" title="2 DStream Model"></a>2 DStream Model</h2><p>类似于RDD之于Spark，Spark Streaming也有自己的核心数据对象，称为DStream（Discretized Stream，离散流）。使用Spark Streaming需要基于一些数据源创建DStream，然后在DStream上进行一些数据操作，这里的DStream可以近似地看作是一个比RDD更高一级的数据结构或者是RDD的序列。</p>
+<p>虽然Spark Streaming声称是进行流数据处理的大数据系统，但从DStream的名称中就可以看出，它本质上仍然是基于批处理的。DStream将数据流进行分片，转化为多个batch，然后使用Spark Engine对这些batch进行处理和分析。</p>
+<p>这里的batch是基于时间间隔来进行分割的，这里的<strong>批处理时间间隔</strong>（batch interval）需要人为确定，每一个batch的数据对应一个RDD实例。</p>
+<h3 id="2-1-Input-DStream"><a href="#2-1-Input-DStream" class="headerlink" title="2.1 Input DStream"></a>2.1 Input DStream</h3><p>Input DStream是一种特殊的DStream，它从外部数据源中获取原始数据流，连接到Spark Streaming中。Input DStream可以接受两种类型的数据输入：</p>
+<p>（1）基本输入源：文件流、套接字连接和Akka Actor。</p>
+<p>（2）高级输入源：Kafka、Flume、Kineis、Twitter等。</p>
+<p>基本输入源可以直接应用于StreamingContext API，而对于高级输入源则需要一些额外的依赖包。</p>
+<p>由于Input DStream要接受外部的数据输入，因此每个Input DStream（不包括文件流）都会对应一个单一的接收器（Receiver）对象，每个接收器对象都对应接受一个数据流输入。由于接收器需要持续运行，因此会占用分配给Spark Streaming的一个核，如果可用的核数不大于接收器的数量，会导致无法对数据进行其他变换操作。</p>
+<h3 id="2-2-DStream-Transformation"><a href="#2-2-DStream-Transformation" class="headerlink" title="2.2 DStream Transformation"></a>2.2 DStream Transformation</h3><p>DStream的转换也和RDD的转换类似，即对于数据对象进行变换、计算等操作，但DStream的Transformation中还有一些特殊的操作，如updateStateByKey()、transform()以及各种Window相关的操作。下面列举了一些主要的DStream操作：</p>
+<table>
+<thead>
+<tr>
+<th>Transformation</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>map(func)</td>
+<td>对DStream中的各个元素进行func函数操作，然后返回一个新的DStream.</td>
+</tr>
+<tr>
+<td>flatMap(func)</td>
+<td>与map方法类似，只不过各个输入项可以被输出为零个或多个输出项.</td>
+</tr>
+<tr>
+<td>filter(func)</td>
+<td>过滤出所有函数func返回值为true的DStream元素并返回一个新的DStream.</td>
+</tr>
+<tr>
+<td>repartition(numPartitions)</td>
+<td>增加或减少DStream中的分区数，从而改变DStream的并行度.</td>
+</tr>
+<tr>
+<td>union(otherStream)</td>
+<td>将源DStream和输入参数为otherDStream的元素合并，并返回一个新的DStream.</td>
+</tr>
+<tr>
+<td>count()</td>
+<td>通过对DStream中的各个RDD中的元素进行计数.</td>
+</tr>
+<tr>
+<td>reduce(func)</td>
+<td>对源DStream中的各个RDD中的元素利用func进行聚合操作，然后返回只有一个元素的RDD构成的新的DStream.</td>
+</tr>
+<tr>
+<td>countByValue()</td>
+<td>对于元素类型为K的DStream，返回一个元素为（K,Long）键值对形式的新的DStream，Long对应的值为源DStream中各个RDD的key出现的次数.</td>
+</tr>
+<tr>
+<td>reduceByKey(func, [numTasks])</td>
+<td>利用func函数对源DStream中的key进行聚合操作，然后返回新的（K，V）对构成的DStream.</td>
+</tr>
+<tr>
+<td>join(otherStream, [numTasks])</td>
+<td>输入为（K,V)、（K,W）类型的DStream，返回一个新的（K，（V，W））类型的DStream.</td>
+</tr>
+<tr>
+<td>cogroup(otherStream, [numTasks])</td>
+<td>输入为（K,V)、（K,W）类型的DStream，返回一个新的 (K, Seq[V], Seq[W]) 元组类型的DStream.</td>
+</tr>
+<tr>
+<td>transform(func)</td>
+<td>通过RDD-to-RDD函数作用于DStream中的各个RDD，返回一个新的RDD.</td>
+</tr>
+<tr>
+<td>updateStateByKey(func)</td>
+<td>根据于key的前置状态和key的新值，对key进行更新，返回一个新状态的DStream.</td>
+</tr>
+</tbody>
+</table>
+<p>Spark Streaming提供了基于窗口（Window）的计算，即可以通过一个滑动窗口，对原始DStream的数据进行转换，得到一个新的DStream。这里涉及到两个参数的设定：</p>
+<p>（1）<strong>窗口长度</strong>（window length）：一个窗口覆盖的流数据的时间长度，必须是批处理时间间隔的倍数。窗口长度决定了一个窗口内包含多少个batch的数据。</p>
+<p>（2）<strong>窗口滑动时间间隔</strong>（slide interval）：前一个窗口到后一个窗口所经过的时间长度，必须是批处理时间间隔的倍数。<img src="https://img2018.cnblogs.com/blog/1325174/201811/1325174-20181128104438270-20951721.jpg" alt="window-slide-compute"></p>
+<h3 id="2-3-DStream-Output-Operations"><a href="#2-3-DStream-Output-Operations" class="headerlink" title="2.3 DStream Output Operations"></a>2.3 DStream Output Operations</h3><p>DStream的输出操作（Output Operations）可以将DStream的数据输出到外部的数据库或文件系统。与RDD的Action类似，当某个Output Operation被调用时，Spark Streaming程序才会开始真正的计算过程。</p>
+<p>下面列举了一些具体的输出操作：</p>
+<table>
+<thead>
+<tr>
+<th>Output Operations</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>print()</td>
+<td>打印到控制台.</td>
+</tr>
+<tr>
+<td>saveAsTextFiles(prefix, [suffix])</td>
+<td>保存DStream的内容为文本文件，文件名为”prefix-TIME_IN_MS[.suffix]”.</td>
+</tr>
+<tr>
+<td>saveAsObjectFiles(prefix, [suffix])</td>
+<td>保存DStream的内容为SequenceFile，文件名为 “prefix-TIME_IN_MS[.suffix]”.</td>
+</tr>
+<tr>
+<td>saveAsHadoopFiles(prefix, [suffix])</td>
+<td>保存DStream的内容为Hadoop文件，文件名为”prefix-TIME_IN_MS[.suffix]”.</td>
+</tr>
+<tr>
+<td>foreachRDD(func)</td>
+<td>对Dstream里面的每个RDD执行func，并将结果保存到外部系统，如保存到RDD文件中或写入数据库.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-Fault-Tolerance"><a href="#3-Fault-Tolerance" class="headerlink" title="3 Fault Tolerance"></a>3 Fault Tolerance</h2><p>容错（Fault Tolerance）指的是一个系统在部分模块出现故障时仍旧能够提供服务的能力。一个分布式数据处理程序要能够长期不间断运行，这就要求计算模型具有很高的容错性。</p>
+<p>Spark操作的数据一般存储与类似HDFS这样的文件系统上，这些文件系统本身就有容错能力。但是由于Spark Streaming处理的很多数据是通过网络接收的，即接收到数据的时候没有备份，为了让Spark Streaming程序中的RDD都能够具有和普通RDD一样的容错性，这些数据需要被复制到多个Worker节点的Executor内存中。</p>
+<p>Spark Streaming通过检查点（Check Point）的方式来平衡容错能力和代价问题。DStream依赖的RDD是可重复的数据集，每一个RDD从建立之初都记录了每一步的计算过程，如果RDD某个分区由于一些原因数据丢失了，就可以重新执行计算来恢复数据。随着运行时间的增加，数据恢复的代价也会随着计算过程而增加，因此Spark提供了检查点功能，定期记录计算的中间状态，避免数据恢复时的漫长计算过程。Spark Streaming支持两种类型的检查点：</p>
+<p>（1）元数据检查点。这种检查点可以记录Driver的配置、操作以及未完成的批次，可以让Driver节点在失效重启后可以继续运行。</p>
+<p>（2）数据检查点。这种检查点主要用来恢复有状态的转换操作，例如updateStateByKey或者reduceByKeyAndWindow操作，它可以记录数据计算的中间状态，避免在数据恢复时，长依赖链带来的恢复时间的无限增长。</p>
+<p>开启检查点功能需要设置一个可靠的文件系统路径来保存检查点信息，代码如下：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">streamingContext.checkpoing(checkPointDirectory)    <span class="comment">//参数是文件路径</span></span><br></pre></td></tr></table></figure>
+<p>为了让Driver自动重启时能够开启检查点功能，需要对原始StreamingContext进行简单的修改，创建一个检查检查点目录的函数，代码如下：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">functionToCreateContext</span></span>(): <span class="type">StreamingContext</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> ssc = <span class="keyword">new</span> <span class="type">StreamingContext</span>(...)</span><br><span class="line">    ssc.checkpoint(checkpointDirecroty)    <span class="comment">//设置检查点目录</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">val</span> lines = ssc.socketTextStream(...)  <span class="comment">//创建DStream</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从检查点目录恢复一个StreamingContext或者创建一个新的</span></span><br><span class="line"><span class="keyword">val</span> ssc = <span class="type">StreamingContext</span>.getOrCreate(checkpointDirectory,</span><br><span class="line">                                      functionToCreateContext())</span><br><span class="line"><span class="comment">//启动context</span></span><br><span class="line">context.start()</span><br><span class="line">context.awaitTermination()</span><br></pre></td></tr></table></figure>
+<p>[1] 于俊. Spark核心技术与高级应用[M]. 机械工业出版社, 2016.</p>
+<p>[2] 陈欢林世飞. Spark最佳实践[M].人民邮电出版社, 2016.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2018 YHY<br></p>
+                <!--<p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>-->
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
