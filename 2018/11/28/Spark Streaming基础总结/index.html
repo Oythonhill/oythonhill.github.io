@@ -187,7 +187,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h1 id="Spark-Streaming基础总结"><a href="#Spark-Streaming基础总结" class="headerlink" title="Spark Streaming基础总结"></a>Spark Streaming基础总结</h1><p>最近在看Spark的相关东西，主要包括Spark的基础知识、Spark Streaming等，写了一些总结。</p>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1  Introduction"></a>1  Introduction</h2><p>从时间维度可以将数据分析分为历史数据的分析和实时数据的分析，例如Hive可以实现对于历史全量数据的计算，但是花费时间往往较长。实际场景中，如“双11”各大电商平台实时计算当前订单的情况时，需要实时对各个订单的数据依次进行采集、分析处理、存储等步骤，对于数据处理的速度要求很高，而且需要保持一段时期内不间断的运行。对于这类问题，Spark通过Spark Streaming组件提供了支持，Spark Streaming可以实现对于高吞吐量、实时的数据流的处理和分析，支持多样化的数据源如Kafka、Flume、HDFS、Kinesis和Twitter等。</p>
-<p><img src="https://img2018.cnblogs.com/blog/1325174/201811/1325174-20181128104422188-1614555531.jpg" alt="spark-streaming"></p>
+<p><img src="http://f.cangg.cn:81/data/2018112815341070288076.jpg" alt="spark-streaming"></p>
 <h2 id="2-DStream-Model"><a href="#2-DStream-Model" class="headerlink" title="2 DStream Model"></a>2 DStream Model</h2><p>类似于RDD之于Spark，Spark Streaming也有自己的核心数据对象，称为DStream（Discretized Stream，离散流）。使用Spark Streaming需要基于一些数据源创建DStream，然后在DStream上进行一些数据操作，这里的DStream可以近似地看作是一个比RDD更高一级的数据结构或者是RDD的序列。</p>
 <p>虽然Spark Streaming声称是进行流数据处理的大数据系统，但从DStream的名称中就可以看出，它本质上仍然是基于批处理的。DStream将数据流进行分片，转化为多个batch，然后使用Spark Engine对这些batch进行处理和分析。</p>
 <p>这里的batch是基于时间间隔来进行分割的，这里的<strong>批处理时间间隔</strong>（batch interval）需要人为确定，每一个batch的数据对应一个RDD实例。</p>
@@ -261,7 +261,8 @@
 </table>
 <p>Spark Streaming提供了基于窗口（Window）的计算，即可以通过一个滑动窗口，对原始DStream的数据进行转换，得到一个新的DStream。这里涉及到两个参数的设定：</p>
 <p>（1）<strong>窗口长度</strong>（window length）：一个窗口覆盖的流数据的时间长度，必须是批处理时间间隔的倍数。窗口长度决定了一个窗口内包含多少个batch的数据。</p>
-<p>（2）<strong>窗口滑动时间间隔</strong>（slide interval）：前一个窗口到后一个窗口所经过的时间长度，必须是批处理时间间隔的倍数。<img src="https://img2018.cnblogs.com/blog/1325174/201811/1325174-20181128104438270-20951721.jpg" alt="window-slide-compute"></p>
+<p>（2）<strong>窗口滑动时间间隔</strong>（slide interval）：前一个窗口到后一个窗口所经过的时间长度，必须是批处理时间间隔的倍数。</p>
+<p><img src="http://f.cangg.cn:81/data/2018112815344144718405.jpg" alt="window-slide-compute"></p>
 <h3 id="2-3-DStream-Output-Operations"><a href="#2-3-DStream-Output-Operations" class="headerlink" title="2.3 DStream Output Operations"></a>2.3 DStream Output Operations</h3><p>DStream的输出操作（Output Operations）可以将DStream的数据输出到外部的数据库或文件系统。与RDD的Action类似，当某个Output Operation被调用时，Spark Streaming程序才会开始真正的计算过程。</p>
 <p>下面列举了一些具体的输出操作：</p>
 <table>
