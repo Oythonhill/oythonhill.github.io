@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Python Selenium 快速上手 | YHY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python Selenium 快速上手selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。 在爬虫领域的应用，主要就是模拟人的操作，打开浏览器，获取网页源码。获得网页源码之后就可以再利用BeautifulSoup、XPath等去解析和提取我们需要的数据了。 1 导入核心模块selenium.webdriverselenium.webdriver模块是使用中的">
+<meta name="keywords" content="Python爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Selenium 快速上手">
+<meta property="og:url" content="http://yoursite.com/2018/11/29/Python Selenium 快速上手/index.html">
+<meta property="og:site_name" content="YHY">
+<meta property="og:description" content="Python Selenium 快速上手selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。 在爬虫领域的应用，主要就是模拟人的操作，打开浏览器，获取网页源码。获得网页源码之后就可以再利用BeautifulSoup、XPath等去解析和提取我们需要的数据了。 1 导入核心模块selenium.webdriverselenium.webdriver模块是使用中的">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-29T11:11:35.623Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Selenium 快速上手">
+<meta name="twitter:description" content="Python Selenium 快速上手selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。 在爬虫领域的应用，主要就是模拟人的操作，打开浏览器，获取网页源码。获得网页源码之后就可以再利用BeautifulSoup、XPath等去解析和提取我们需要的数据了。 1 导入核心模块selenium.webdriverselenium.webdriver模块是使用中的">
+  
+    <link rel="alternate" href="/atom.xml" title="YHY" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px">
+              <span class="logo">YHY</span>
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Python Selenium 快速上手</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://avatars2.githubusercontent.com/u/31383943?s=460&v=4">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> YHY</span>
+                <span class="post-date sub-title">at: 2018-11-29</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/Python爬虫/">Python爬虫</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h3 id="Python-Selenium-快速上手"><a href="#Python-Selenium-快速上手" class="headerlink" title="Python Selenium 快速上手"></a>Python Selenium 快速上手</h3><p>selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。</p>
+<p>在爬虫领域的应用，主要就是模拟人的操作，打开浏览器，获取网页源码。获得网页源码之后就可以再利用BeautifulSoup、XPath等去解析和提取我们需要的数据了。</p>
+<h4 id="1-导入核心模块selenium-webdriver"><a href="#1-导入核心模块selenium-webdriver" class="headerlink" title="1 导入核心模块selenium.webdriver"></a>1 导入核心模块selenium.webdriver</h4><p>selenium.webdriver模块是使用中的核心模块，提供了常用浏览器的WebDriver实现。目前支持的WebDriver实现有Firefox，Chrome，IE和Remote等，本文主要使用Chrome。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入driver模块</span></span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br></pre></td></tr></table></figure>
+<h4 id="2-打开浏览器"><a href="#2-打开浏览器" class="headerlink" title="2 打开浏览器"></a>2 打开浏览器</h4><p>导入driver模块之后，就可以使用它打开浏览器了，代码如下所示</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">browser = webdriver.Chrome(chrome_path) <span class="comment"># chrome_path为本地的chrome驱动的路径</span></span><br><span class="line">browser_phantomjs = webdriver.PhantomJS(phantomjs_path) <span class="comment"># phantomjs_path为本地的phantomjs_path的路径</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-打开网页"><a href="#3-打开网页" class="headerlink" title="3 打开网页"></a>3 打开网页</h4><p>打开Chrome浏览器后，会打开一个默认的空白标签页，接下来就可以在标签页中打开一个网页了，代码如下所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">r"https://www.jianshu.com/u/a9f6f9178f66"</span></span><br><span class="line">browser.get(url) <span class="comment"># 打开网页</span></span><br><span class="line">init_handle = browser.current_window_handle <span class="comment"># 获得当前标签页的句柄(用来定位不同的标签页)</span></span><br></pre></td></tr></table></figure>
+<p>在浏览器中可以打开很多个标签页，每一个标签页都有唯一的标识，也被我们称作标签页的句柄，可以用来在不同的标签页之间切换。</p>
+<h4 id="4-打开多个网页"><a href="#4-打开多个网页" class="headerlink" title="4 打开多个网页"></a>4 打开多个网页</h4><p>我们也可以在新的标签页中打开另一个网页，需要通过执行一个简单的脚本语句实现，脚本语句如下第2行代码所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new_url = <span class="string">r"https://github.com/Oythonhill"</span></span><br><span class="line">open_new_tag_command = <span class="string">"window.open("</span>&#123;&#125;<span class="string">")"</span>.format(new_url) </span><br><span class="line">browser_chrome.execute_script(open_new_tag_command) <span class="comment"># 执行脚本语句，在新的标签页中打开网页</span></span><br><span class="line">total_handles = browser.window_handles <span class="comment"># 获取所有标签页句柄（列表类型）</span></span><br></pre></td></tr></table></figure>
+<p>同样的，我们也可以获取当前所有打开标签页的句柄（以列表类型呈现）。</p>
+<p>当然，我们页可以切换到之前的标签页，代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser.swich_to.window(init_handle) <span class="comment"># 根据之前获取的标签页句柄定位</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="5-获取源码"><a href="#5-获取源码" class="headerlink" title="5 获取源码"></a>5 获取源码</h4><p>获取当前页面的网页源码，获得源码之后就可以通过Beautiful或者XPath进行解析了，当然也可以使用Selenium内置的定位元素的一些方法，这个在另外一篇再说<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source_code = browser.page_source</span><br></pre></td></tr></table></figure></p>
+<p>最后，就是关闭标签页或者浏览器<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">browser.close() <span class="comment"># 关闭当前标签页</span></span><br><span class="line">browser.quit() <span class="comment"># 关闭整个浏览器</span></span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+
+<!-- for code block highlight --> 
+<!-- theme.block_highlight -->
+<!-- we do not guarantee the char sequences spell right, usr himself do it -->
+<link rel="stylesheet" href="/css/highlight_rainbow.css">
+<script src="/js/highlight.min.js"></script>
+<script type="text/javascript"> hljs.initHighlightingOnLoad();</script>
+
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 8vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: red;     /* 原来的值#e1e1e1*/
+  }
+</style>
+
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+
+        <!--站长统计-->>
+        <font size="2">
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275511001'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1275511001%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script> 
+        <br>
+        Theme by Haojen Ma. | Copyright © YHY 2018
+        <br>
+        </font>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

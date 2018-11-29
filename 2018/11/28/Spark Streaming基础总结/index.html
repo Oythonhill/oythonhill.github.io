@@ -9,6 +9,7 @@
   <title>Spark Streaming基础总结 | YHY</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Spark Streaming基础总结最近在看Spark的相关东西，主要包括Spark的基础知识、Spark Streaming等，写了一些总结。 1  Introduction从时间维度可以将数据分析分为历史数据的分析和实时数据的分析，例如Hive可以实现对于历史全量数据的计算，但是花费时间往往较长。实际场景中，如“双11”各大电商平台实时计算当前订单的情况时，需要实时对各个订单的数据依次进行采">
+<meta name="keywords" content="Spark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark Streaming基础总结">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/Spark Streaming基础总结/index.html">
@@ -17,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://f.cangg.cn:81/data/2018112815341070288076.jpg">
 <meta property="og:image" content="http://f.cangg.cn:81/data/2018112815344144718405.jpg">
-<meta property="og:updated_time" content="2018-11-28T07:34:58.353Z">
+<meta property="og:updated_time" content="2018-11-29T11:07:49.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark Streaming基础总结">
 <meta name="twitter:description" content="Spark Streaming基础总结最近在看Spark的相关东西，主要包括Spark的基础知识、Spark Streaming等，写了一些总结。 1  Introduction从时间维度可以将数据分析分为历史数据的分析和实时数据的分析，例如Hive可以实现对于历史全量数据的计算，但是花费时间往往较长。实际场景中，如“双11”各大电商平台实时计算当前订单的情况时，需要实时对各个订单的数据依次进行采">
@@ -64,10 +65,6 @@
                 Home
             </a>
             
-            <a class="nav-item" href="/archives">
-                Archives
-            </a>
-            
             <a class="nav-item" href="/tags">
                 Tags
             </a>
@@ -86,10 +83,6 @@
             
             <a class="nav-item flex-1" href="/">
                 Home
-            </a>
-            
-            <a class="nav-item flex-1" href="/archives">
-                Archives
             </a>
             
             <a class="nav-item flex-1" href="/tags">
@@ -157,6 +150,8 @@
             </div>
             
                 <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/Spark/">Spark</a>
                     
                 </div>
             
@@ -331,30 +326,28 @@
   </div>
   <style>
   #footer {
-    min-height: 10vh;
+    min-height: 8vh;
     background: black;
     color: #fff;
   }
 
   #footer a {
-    color: #e1e1e1;
+    color: red;     /* 原来的值#e1e1e1*/
   }
 </style>
+
 <footer id="footer" class="has-text-centered is-flex center">
   <div class="container has-padding">
     <div>
       <div>
-        <!--请您保留作者署名, 主题制作来之不易-->
+
         <!--站长统计-->>
+        <font size="2">
         <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275511001'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1275511001%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script> 
-
-        Theme by <a href="http://haojen.github.io/">Haojen Ma</a>
         <br>
-        Copyright © YHY 2018
+        Theme by Haojen Ma. | Copyright © YHY 2018
         <br>
-        
-        <!-- Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> -->
-
+        </font>
       </div>
     </div>
   </div>
