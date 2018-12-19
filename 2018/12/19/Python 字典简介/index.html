@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="full-height">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bulma/0.4.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  
+  <title>Python 字典简介 | YHY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python 字典简介1 引言刚开始使用Python时，觉得列表大法好，也可以解决基本的使用需求。渐渐地用Python处理的数据越多，慢慢地自然就转到字典的怀抱了，字典可以无缝转化成pandas的DataFrame或者JSON格式的数据，使用非常方便。 2 字典简介字典是一种可变容器，可以存储任意类型的对象。 字典也是Python中唯一内建的映射（mapping）类型，常见格式如下： 123dic">
+<meta name="keywords" content="Python基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 字典简介">
+<meta property="og:url" content="http://yoursite.com/2018/12/19/Python 字典简介/index.html">
+<meta property="og:site_name" content="YHY">
+<meta property="og:description" content="Python 字典简介1 引言刚开始使用Python时，觉得列表大法好，也可以解决基本的使用需求。渐渐地用Python处理的数据越多，慢慢地自然就转到字典的怀抱了，字典可以无缝转化成pandas的DataFrame或者JSON格式的数据，使用非常方便。 2 字典简介字典是一种可变容器，可以存储任意类型的对象。 字典也是Python中唯一内建的映射（mapping）类型，常见格式如下： 123dic">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-19T01:37:26.122Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 字典简介">
+<meta name="twitter:description" content="Python 字典简介1 引言刚开始使用Python时，觉得列表大法好，也可以解决基本的使用需求。渐渐地用Python处理的数据越多，慢慢地自然就转到字典的怀抱了，字典可以无缝转化成pandas的DataFrame或者JSON格式的数据，使用非常方便。 2 字典简介字典是一种可变容器，可以存储任意类型的对象。 字典也是Python中唯一内建的映射（mapping）类型，常见格式如下： 123dic">
+  
+    <link rel="alternate" href="/atom.xml" title="YHY" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/nav.css">
+<link rel="stylesheet" href="/css/layout.css">
+  
+
+</head>
+</html>
+<body>
+  <header id="navbar" class="overflow-hidden">
+  <div class="container">
+    <nav class="nav">
+         <div class="nav-left">
+            <a href="/" class="nav-item" style="font-size: 20px">
+              <span class="logo">Hongyu Yin</span>
+            </a>
+         </div>
+        <div class="nav-center is-hidden position-relative" id="search_container">
+            <div class="nav-item full-width full-height">
+                <i class="fa fa-search has-padding" aria-hidden="true"></i>
+                <input type="text" id="search_input" class="search-input full-height full-width" placeholder="Search post" autofocus>
+                <i id="close_search" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div id="search_result"></div>
+        </div>
+        <div class="nav-right nav-menu">
+            <a class="nav-item" id="search">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </a>
+            
+            <a class="nav-item" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item" href="/tags">
+                Tags
+            </a>
+            
+            <a class="nav-item" href="/about">
+                About
+            </a>
+            
+        </div>
+        <span class="nav-toggle" id="navMenuDropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="navbar-menu position-absolute full-width content-box is-hidden-desktop is-flex flex-column center" style="top: 100%;">
+            
+            <a class="nav-item flex-1" href="/">
+                Home
+            </a>
+            
+            <a class="nav-item flex-1" href="/tags">
+                Tags
+            </a>
+            
+            <a class="nav-item flex-1" href="/about">
+                About
+            </a>
+            
+        </div>
+    </nav>
+  </div>
+</header>
+
+  <div id="main-wrap" class="position-relative" style="margin-top: 55px;">
+      <div class="main-inner-content">
+          <!--博文页面-->
+
+<style>
+    .header-box {
+        height: 370px;
+        filter: blur(10px);
+        background-size: cover;
+        background-color: lightsteelblue;
+    }
+
+    .post-box {
+        padding: 15px;
+        padding-top: 60px;
+        min-height: 80vh;
+        margin-top: -200px;
+        border-radius: 4px;
+        background-color: rgba(255,255,255,.8);
+    }
+
+    .post-avatar {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
+    .flow-chart {
+        text-align: center;
+    }
+
+    img[alt="post-cover"] {
+        display: none;
+    }
+</style>
+<header>
+    <div id="header_box" class="header-box"></div>
+</header>
+<section>
+    <div class="container post-box">
+        <div class="content post-title is-flex center flex-column" style="margin-bottom: 70px; overflow: auto;">
+            <h1 class="has-text-centered" style="padding-bottom: 10px; border-bottom: 3px solid #fff">
+                <strong>Python 字典简介</strong>
+            </h1>
+            
+            <div class="is-flex align-center">
+                <img class="post-avatar" src="https://avatars2.githubusercontent.com/u/31383943?s=460&v=4">
+                <span style="padding:0 10px;"> <span class="sub-title">By</span> Hongyu Yin</span>
+                <span class="post-date sub-title">at: 2018-12-19</span>
+            </div>
+            
+                <div>
+                    
+                         <a class="tag is-post-tag" href="/tags/Python基础/">Python基础</a>
+                    
+                </div>
+            
+        </div>
+        <div class="content" style="overflow: auto">
+            <h3 id="Python-字典简介"><a href="#Python-字典简介" class="headerlink" title="Python 字典简介"></a>Python 字典简介</h3><h4 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h4><p>刚开始使用Python时，觉得列表大法好，也可以解决基本的使用需求。渐渐地用Python处理的数据越多，慢慢地自然就转到字典的怀抱了，字典可以无缝转化成pandas的DataFrame或者JSON格式的数据，使用非常方便。</p>
+<h4 id="2-字典简介"><a href="#2-字典简介" class="headerlink" title="2 字典简介"></a>2 字典简介</h4><p>字典是一种可变容器，可以存储任意类型的对象。</p>
+<p>字典也是Python中唯一内建的映射（mapping）类型，常见格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;&apos;Alice&apos;: &apos;2341&apos;, </span><br><span class="line">         &apos;Beth&apos;: &apos;9102&apos;,</span><br><span class="line">        &apos;Cecil&apos;: &apos;3258&apos;&#125;</span><br></pre></td></tr></table></figure>
+<p>字典的每个键值对用冒号(:)分割，每个对之间用逗号(,)分割，整个字典包括在花括号({})中，空字典由两个大括号组成 。键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组。</p>
+<h4 id="3-创建字典"><a href="#3-创建字典" class="headerlink" title="3 创建字典"></a>3 创建字典</h4><h5 id="3-1-直观方法"><a href="#3-1-直观方法" class="headerlink" title="3.1 直观方法"></a>3.1 直观方法</h5><p>直接地，在大括号里输入如下的键值对，即创建了一个字典。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict = &#123;<span class="string">'Alice'</span>: <span class="string">'2341'</span>, </span><br><span class="line">            <span class="string">'Beth'</span>: <span class="string">'9102'</span>,</span><br><span class="line">           <span class="string">'Cecil'</span>: <span class="string">'3258'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-2-dict函数"><a href="#3-2-dict函数" class="headerlink" title="3.2 dict函数"></a>3.2 dict函数</h5><p>数据处理的时候，使用的更多的是dict函数，通过其他映射或者（键，值）对的序列来创建字典，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>items = [(<span class="string">'name'</span>, <span class="string">'Gumby'</span>), (<span class="string">'age'</span>,<span class="string">'42'</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_dict = dict(items)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_dict</span><br><span class="line">&#123;<span class="string">'age'</span>: <span class="number">42</span>, <span class="string">'name'</span>: <span class="string">'Gumby'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_dict[<span class="string">'name'</span>]</span><br><span class="line"><span class="string">'Gumby'</span></span><br></pre></td></tr></table></figure>
+<p>或者通过关键字参数来创建字典，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_dict = dict(name=<span class="string">'Gumby'</span>, age=<span class="number">42</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">&#123;<span class="string">'age'</span>: <span class="number">42</span>, <span class="string">'name'</span>: <span class="string">'Gumby'</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>其他的数据格式也常常能很方便地转化为字典，例如JSON格式的数据，这里不再展开。</p>
+<h4 id="4-字典基本操作"><a href="#4-字典基本操作" class="headerlink" title="4 字典基本操作"></a>4 字典基本操作</h4><table>
+<thead>
+<tr>
+<th>操作</th>
+<th style="text-align:left">注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dict[key]</td>
+<td style="text-align:left">返回键key所对应的值</td>
+</tr>
+<tr>
+<td>dict[key]=value</td>
+<td style="text-align:left">将键key所对应的值赋成value</td>
+</tr>
+<tr>
+<td>del dict[key]</td>
+<td style="text-align:left">删除字典中键为key的项</td>
+</tr>
+<tr>
+<td>key in dict</td>
+<td style="text-align:left">检查dict中是否含有键为key的项</td>
+</tr>
+<tr>
+<td>len(dict)</td>
+<td style="text-align:left">返回dict中项（键—值对）的数量</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在字典中检查键的成员资格比在列表中检查值的成员资格更高效</p>
+</blockquote>
+
+        </div>
+        <div class="post-reply">
+            
+                <!-- 来必力City版安装代码 -->
+                <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTE4Ni81NzUz">
+                    <script type="text/javascript">
+                        (function(d, s) {
+                            var j, e = d.getElementsByTagName(s)[0];
+
+                            if (typeof LivereTower === 'function') { return; }
+
+                            j = d.createElement(s);
+                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                            j.async = true;
+
+                            e.parentNode.insertBefore(j, e);
+                        })(document, 'script');
+                    </script>
+                    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+                </div>
+                <!-- City版安装代码已完成 -->
+            
+            
+        </div>
+    </div>
+</section>
+<script>
+    // 获取第一张图, 用以当封面背景图
+    var img = document.querySelectorAll('img')[1]
+
+    if (img) {
+        var header_box = document.querySelector('#header_box')
+        header_box.style.backgroundImage = 'url('+ img.src +')'
+    }
+</script>
+
+<!-- for code block highlight --> 
+<!-- theme.block_highlight -->
+<!-- we do not guarantee the char sequences spell right, usr himself do it -->
+<link rel="stylesheet" href="/css/highlight_rainbow.css">
+<script src="/js/highlight.min.js"></script>
+<script type="text/javascript"> hljs.initHighlightingOnLoad();</script>
+
+      </div>
+  </div>
+  <style>
+  #footer {
+    min-height: 8vh;
+    background: black;
+    color: #fff;
+  }
+
+  #footer a {
+    color: red;     /* 原来的值#e1e1e1*/
+  }
+</style>
+
+<footer id="footer" class="has-text-centered is-flex center">
+  <div class="container has-padding">
+    <div>
+      <div>
+
+        <!--站长统计-->>
+        <font size="2">
+        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1275511001'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1275511001%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script> 
+        <br>
+        Theme by Haojen Ma. | Copyright © YHY 2018
+        <br>
+        </font>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/search_core.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
