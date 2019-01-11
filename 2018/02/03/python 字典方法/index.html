@@ -24,7 +24,7 @@
 <meta property="og:site_name" content="YHY">
 <meta property="og:description" content="字典方法5.1 Clearclear方法可以清除字典里所有的项，这是个原地操作（类似于list.sort），所以无返回值（或者说返回值为None）。示例代码如下： 12345678910&amp;gt;&amp;gt;&amp;gt; my_dict = &amp;#123;&amp;#125;&amp;gt;&amp;gt;&amp;gt; my_dict[&apos;name&apos;] = &apos;Oythonhill&apos;&amp;gt;&amp;gt;&amp;gt; my_dict[&apos;age&apos;] =">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-19T01:42:40.149Z">
+<meta property="og:updated_time" content="2019-01-11T07:53:27.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 字典方法">
 <meta name="twitter:description" content="字典方法5.1 Clearclear方法可以清除字典里所有的项，这是个原地操作（类似于list.sort），所以无返回值（或者说返回值为None）。示例代码如下： 12345678910&amp;gt;&amp;gt;&amp;gt; my_dict = &amp;#123;&amp;#125;&amp;gt;&amp;gt;&amp;gt; my_dict[&apos;name&apos;] = &apos;Oythonhill&apos;&amp;gt;&amp;gt;&amp;gt; my_dict[&apos;age&apos;] =">
@@ -123,10 +123,12 @@
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2018-02-03</span>
+        <span class="column is-narrow">2018-02-03 14:02&nbsp&nbsp&nbsp&nbsp</span>
+        <!--
         <span class="column is-narrow">
             <time datetime="2018-02-03T06:30:00.000Z" itemprop="datePublished">Feb 3 2018</time>
         </span>
+        -->
         
         
     </div>
@@ -134,6 +136,7 @@
     
         <h3 id="字典方法"><a href="#字典方法" class="headerlink" title="字典方法"></a>字典方法</h3><h5 id="5-1-Clear"><a href="#5-1-Clear" class="headerlink" title="5.1 Clear"></a>5.1 Clear</h5><p>clear方法可以清除字典里所有的项，这是个原地操作（类似于list.sort），所以无返回值（或者说返回值为None）。示例代码如下：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict = &#123;&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict[<span class="hljs-string">'name'</span>] = <span class="hljs-string">'Oythonhill'</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict[<span class="hljs-string">'age'</span>] = <span class="hljs-number">22</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict</span><br><span class="line">&#123;<span class="hljs-string">'age'</span>: <span class="hljs-number">22</span>, <span class="hljs-string">'name'</span>: <span class="hljs-string">'Oythonhill'</span>&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>returned_value = my_dict.clear()</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict</span><br><span class="line">&#123;&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>print(returned_value)</span><br><span class="line"><span class="hljs-keyword">None</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h5 id="5-2-Copy"><a href="#5-2-Copy" class="headerlink" title="5.2 Copy"></a>5.2 Copy</h5><p>copy方法返回一个具有相同键值对的新字典（浅复制），示例代码如下：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>x = &#123;<span class="hljs-string">'author'</span>: <span class="hljs-string">'oythonhill'</span>, <span class="hljs-string">'location'</span>: <span class="hljs-string">'beijing'</span>&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>y = x.copy()</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>y[<span class="hljs-string">'author'</span>] = <span class="hljs-string">'pythonhill'</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>y[<span class="hljs-string">'location'</span>] = <span class="hljs-string">'shanghai'</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>y</span><br></pre></td></tr></table></figure>
 <p>mydict.copy()</p>

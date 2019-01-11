@@ -130,31 +130,22 @@
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2019-01-11</span>
+        <span class="column is-narrow">2018-11-29 19:11&nbsp&nbsp&nbsp&nbsp</span>
+        <!--
         <span class="column is-narrow">
             <time datetime="2018-11-29T11:05:00.000Z" itemprop="datePublished">Nov 29 2018</time>
         </span>
+        -->
         
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h3 id="Python-Selenium-快速上手"><a href="#Python-Selenium-快速上手" class="headerlink" title="Python Selenium 快速上手"></a>Python Selenium 快速上手</h3><p>selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。</p>
+        <p>selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。</p>
 <p>在爬虫领域的应用，主要就是模拟人的操作，打开浏览器，获取网页源码。获得网页源码之后就可以再利用BeautifulSoup、XPath等去解析和提取我们需要的数据了。</p>
-<h4 id="1-导入核心模块selenium-webdriver"><a href="#1-导入核心模块selenium-webdriver" class="headerlink" title="1 导入核心模块selenium.webdriver"></a>1 导入核心模块selenium.webdriver</h4><p>selenium.webdriver模块是使用中的核心模块，提供了常用浏览器的WebDriver实现。目前支持的WebDriver实现有Firefox，Chrome，IE和Remote等，本文主要使用Chrome。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 导入driver模块</span></span><br><span class="line"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver</span><br></pre></td></tr></table></figure>
-<h4 id="2-打开浏览器"><a href="#2-打开浏览器" class="headerlink" title="2 打开浏览器"></a>2 打开浏览器</h4><p>导入driver模块之后，就可以使用它打开浏览器了，代码如下所示</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">browser = webdriver.Chrome(chrome_path) <span class="hljs-comment"># chrome_path为本地的chrome驱动的路径</span></span><br><span class="line">browser_phantomjs = webdriver.PhantomJS(phantomjs_path) <span class="hljs-comment"># phantomjs_path为本地的phantomjs_path的路径</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-打开网页"><a href="#3-打开网页" class="headerlink" title="3 打开网页"></a>3 打开网页</h4><p>打开Chrome浏览器后，会打开一个默认的空白标签页，接下来就可以在标签页中打开一个网页了，代码如下所示：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="hljs-string">r"https://www.jianshu.com/u/a9f6f9178f66"</span></span><br><span class="line">browser.get(url) <span class="hljs-comment"># 打开网页</span></span><br><span class="line">init_handle = browser.current_window_handle <span class="hljs-comment"># 获得当前标签页的句柄(用来定位不同的标签页)</span></span><br></pre></td></tr></table></figure>
-<p>在浏览器中可以打开很多个标签页，每一个标签页都有唯一的标识，也被我们称作标签页的句柄，可以用来在不同的标签页之间切换。</p>
-<h4 id="4-打开多个网页"><a href="#4-打开多个网页" class="headerlink" title="4 打开多个网页"></a>4 打开多个网页</h4><p>我们也可以在新的标签页中打开另一个网页，需要通过执行一个简单的脚本语句实现，脚本语句如下第2行代码所示：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new_url = <span class="hljs-string">r"https://github.com/Oythonhill"</span></span><br><span class="line">open_new_tag_command = <span class="hljs-string">"window.open("</span>&#123;&#125;<span class="hljs-string">")"</span>.format(new_url) </span><br><span class="line">browser_chrome.execute_script(open_new_tag_command) <span class="hljs-comment"># 执行脚本语句，在新的标签页中打开网页</span></span><br><span class="line">total_handles = browser.window_handles <span class="hljs-comment"># 获取所有标签页句柄（列表类型）</span></span><br></pre></td></tr></table></figure>
-<p>同样的，我们也可以获取当前所有打开标签页的句柄（以列表类型呈现）。</p>
-<p>当然，我们页可以切换到之前的标签页，代码如下：<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser.swich_to.window(init_handle) <span class="hljs-comment"># 根据之前获取的标签页句柄定位</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="5-获取源码"><a href="#5-获取源码" class="headerlink" title="5 获取源码"></a>5 获取源码</h4><p>获取当前页面的网页源码，获得源码之后就可以通过Beautiful或者XPath进行解析了，当然也可以使用Selenium内置的定位元素的一些方法，这个在另外一篇再说<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source_code = browser.page_source</span><br></pre></td></tr></table></figure></p>
-<p>最后，就是关闭标签页或者浏览器<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">browser.close() <span class="hljs-comment"># 关闭当前标签页</span></span><br><span class="line">browser.quit() <span class="hljs-comment"># 关闭整个浏览器</span></span><br></pre></td></tr></table></figure></p>
-
+        <p class="article-more-link">
+            <a href="/2018/11/29/Python Selenium 快速上手/#more">Read More</a>
+        </p>
     
     </div>
     

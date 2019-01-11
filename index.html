@@ -123,17 +123,23 @@
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2019-01-11</span>
+        <span class="column is-narrow">2018-12-19 09:12&nbsp&nbsp&nbsp&nbsp</span>
+        <!--
         <span class="column is-narrow">
             <time datetime="2018-12-19T01:37:00.000Z" itemprop="datePublished">Dec 19 2018</time>
+        </span>
+        -->
+        
+        <span class="column is-narrow article-category">
+            <i class="far fa-folder"></i>
+            <a class="article-category-link" href="/categories/Python基础/">Python基础</a>
         </span>
         
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p><img src="https://img.zcool.cn/community/0153145549a58d0000019ae9904286.jpg@1280w_1l_2o_100sh.jpg" alt="码头"></p>
-<h4 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h4><p>刚开始使用Python时，觉得列表大法好，也可以解决基本的使用需求。渐渐地用Python处理的数据越多，慢慢地自然就转到字典的怀抱了，字典可以无缝转化成pandas的DataFrame或者JSON格式的数据，使用非常方便。</p>
+        <h4 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h4><p>刚开始使用Python时，觉得列表大法好，也可以解决基本的使用需求。渐渐地用Python处理的数据越多，慢慢地自然就转到字典的怀抱了，字典可以无缝转化成pandas的DataFrame或者JSON格式的数据，使用非常方便。</p>
         <p class="article-more-link">
             <a href="/2018/12/19/Python 字典简介/#more">Read More</a>
         </p>
@@ -154,10 +160,12 @@
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2019-01-11</span>
+        <span class="column is-narrow">2018-12-19 09:12&nbsp&nbsp&nbsp&nbsp</span>
+        <!--
         <span class="column is-narrow">
             <time datetime="2018-12-19T01:30:00.000Z" itemprop="datePublished">Dec 19 2018</time>
         </span>
+        -->
         
         
     </div>
@@ -165,11 +173,9 @@
     
         <p>Factorization Machine 因子分解机</p>
 <p>一般的线性模型可以表示为：<br>$$y(x)=w_0+\sum_\limits{i=1}^{n}{w_i}x_i$$<br>但是上述模型没有考虑特征间的关联，为表示关联特征对$y$的影响，考虑多项式模型，以$x_iy_i$表示两特征的组合，有如下二阶多项式模型：<br>$$y=w_0+\sum_\limits{i=1}^{n}{w_ix_i}+\sum_limits{i=1}^{n-1}{\sum_\limits{j=i+1}^{n}{w_{ij}x_ix_j}}$$<br>其中，$x_i$表示第$i$个特征，n表示特征的个数。</p>
-<p>由式1可知，组合特征及其参数的的个数为$\frac{n(n-1)}{2}$个，若特征数据很密集，则可以使用传统方法求解。但若在CTR预估等场景中，进行One-Hot Encoding后，特征会变得非常稀疏(Sparse)<br>，满足$x_ix_j$都不为零的记录很少，使用传统方法求解会带来很大的误差。</p>
-<p>观察，由$w_{ij}$组成的矩阵可以表示为</p>
-<p>即对应的$w_{ij}=v_iv_j^T$，可以将$v_i$和$v_j$看作是$x_i$和$x_j$自带的辅助向量，具体地$v_i=(v_{i1},v_{i2},…,v_{ik})$，$v_i$的维度$k$反映了模型的表达能力。<br>因此，二阶多项式模型也可以表示为：<br>$$y(x)=w_0 + \sum_\limits{i=1}^{n}{w_ix_i} + \sum_\limits{i=1}^{n}{\sum_\limits{j=i+1}^{n}{\langle v_i,v_j\rangle x_ix_j}}$$<br>将组合特征的参数$w_{ij}$转化为$\langle v_i,v_j\rangle$，确保了在稀疏的情况下仍然能够求得$w_{ij}$的解，这就是FM的核心思想。</p>
-<p>FM的求解过程……（待补充）</p>
-
+        <p class="article-more-link">
+            <a href="/2018/12/19/FM/#more">Read More</a>
+        </p>
     
     </div>
     
@@ -187,31 +193,22 @@
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2019-01-11</span>
+        <span class="column is-narrow">2018-11-29 19:11&nbsp&nbsp&nbsp&nbsp</span>
+        <!--
         <span class="column is-narrow">
             <time datetime="2018-11-29T11:05:00.000Z" itemprop="datePublished">Nov 29 2018</time>
         </span>
+        -->
         
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h3 id="Python-Selenium-快速上手"><a href="#Python-Selenium-快速上手" class="headerlink" title="Python Selenium 快速上手"></a>Python Selenium 快速上手</h3><p>selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。</p>
+        <p>selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。</p>
 <p>在爬虫领域的应用，主要就是模拟人的操作，打开浏览器，获取网页源码。获得网页源码之后就可以再利用BeautifulSoup、XPath等去解析和提取我们需要的数据了。</p>
-<h4 id="1-导入核心模块selenium-webdriver"><a href="#1-导入核心模块selenium-webdriver" class="headerlink" title="1 导入核心模块selenium.webdriver"></a>1 导入核心模块selenium.webdriver</h4><p>selenium.webdriver模块是使用中的核心模块，提供了常用浏览器的WebDriver实现。目前支持的WebDriver实现有Firefox，Chrome，IE和Remote等，本文主要使用Chrome。</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 导入driver模块</span></span><br><span class="line"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver</span><br></pre></td></tr></table></figure>
-<h4 id="2-打开浏览器"><a href="#2-打开浏览器" class="headerlink" title="2 打开浏览器"></a>2 打开浏览器</h4><p>导入driver模块之后，就可以使用它打开浏览器了，代码如下所示</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">browser = webdriver.Chrome(chrome_path) <span class="hljs-comment"># chrome_path为本地的chrome驱动的路径</span></span><br><span class="line">browser_phantomjs = webdriver.PhantomJS(phantomjs_path) <span class="hljs-comment"># phantomjs_path为本地的phantomjs_path的路径</span></span><br></pre></td></tr></table></figure>
-<h4 id="3-打开网页"><a href="#3-打开网页" class="headerlink" title="3 打开网页"></a>3 打开网页</h4><p>打开Chrome浏览器后，会打开一个默认的空白标签页，接下来就可以在标签页中打开一个网页了，代码如下所示：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="hljs-string">r"https://www.jianshu.com/u/a9f6f9178f66"</span></span><br><span class="line">browser.get(url) <span class="hljs-comment"># 打开网页</span></span><br><span class="line">init_handle = browser.current_window_handle <span class="hljs-comment"># 获得当前标签页的句柄(用来定位不同的标签页)</span></span><br></pre></td></tr></table></figure>
-<p>在浏览器中可以打开很多个标签页，每一个标签页都有唯一的标识，也被我们称作标签页的句柄，可以用来在不同的标签页之间切换。</p>
-<h4 id="4-打开多个网页"><a href="#4-打开多个网页" class="headerlink" title="4 打开多个网页"></a>4 打开多个网页</h4><p>我们也可以在新的标签页中打开另一个网页，需要通过执行一个简单的脚本语句实现，脚本语句如下第2行代码所示：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new_url = <span class="hljs-string">r"https://github.com/Oythonhill"</span></span><br><span class="line">open_new_tag_command = <span class="hljs-string">"window.open("</span>&#123;&#125;<span class="hljs-string">")"</span>.format(new_url) </span><br><span class="line">browser_chrome.execute_script(open_new_tag_command) <span class="hljs-comment"># 执行脚本语句，在新的标签页中打开网页</span></span><br><span class="line">total_handles = browser.window_handles <span class="hljs-comment"># 获取所有标签页句柄（列表类型）</span></span><br></pre></td></tr></table></figure>
-<p>同样的，我们也可以获取当前所有打开标签页的句柄（以列表类型呈现）。</p>
-<p>当然，我们页可以切换到之前的标签页，代码如下：<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser.swich_to.window(init_handle) <span class="hljs-comment"># 根据之前获取的标签页句柄定位</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="5-获取源码"><a href="#5-获取源码" class="headerlink" title="5 获取源码"></a>5 获取源码</h4><p>获取当前页面的网页源码，获得源码之后就可以通过Beautiful或者XPath进行解析了，当然也可以使用Selenium内置的定位元素的一些方法，这个在另外一篇再说<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source_code = browser.page_source</span><br></pre></td></tr></table></figure></p>
-<p>最后，就是关闭标签页或者浏览器<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">browser.close() <span class="hljs-comment"># 关闭当前标签页</span></span><br><span class="line">browser.quit() <span class="hljs-comment"># 关闭整个浏览器</span></span><br></pre></td></tr></table></figure></p>
-
+        <p class="article-more-link">
+            <a href="/2018/11/29/Python Selenium 快速上手/#more">Read More</a>
+        </p>
     
     </div>
     
@@ -229,137 +226,21 @@
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2019-01-11</span>
+        <span class="column is-narrow">2018-11-28 11:11&nbsp&nbsp&nbsp&nbsp</span>
+        <!--
         <span class="column is-narrow">
             <time datetime="2018-11-28T03:00:00.000Z" itemprop="datePublished">Nov 28 2018</time>
         </span>
+        -->
         
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <h1 id="Spark-Streaming基础总结"><a href="#Spark-Streaming基础总结" class="headerlink" title="Spark Streaming基础总结"></a>Spark Streaming基础总结</h1><p>最近在看Spark的相关东西，主要包括Spark的基础知识、Spark Streaming等，写了一些总结。</p>
-<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1  Introduction"></a>1  Introduction</h2><p>从时间维度可以将数据分析分为历史数据的分析和实时数据的分析，例如Hive可以实现对于历史全量数据的计算，但是花费时间往往较长。实际场景中，如“双11”各大电商平台实时计算当前订单的情况时，需要实时对各个订单的数据依次进行采集、分析处理、存储等步骤，对于数据处理的速度要求很高，而且需要保持一段时期内不间断的运行。对于这类问题，Spark通过Spark Streaming组件提供了支持，Spark Streaming可以实现对于高吞吐量、实时的数据流的处理和分析，支持多样化的数据源如Kafka、Flume、HDFS、Kinesis和Twitter等。</p>
-<p><img src="http://f.cangg.cn:81/data/2018112815341070288076.jpg" alt="spark-streaming"></p>
-<h2 id="2-DStream-Model"><a href="#2-DStream-Model" class="headerlink" title="2 DStream Model"></a>2 DStream Model</h2><p>类似于RDD之于Spark，Spark Streaming也有自己的核心数据对象，称为DStream（Discretized Stream，离散流）。使用Spark Streaming需要基于一些数据源创建DStream，然后在DStream上进行一些数据操作，这里的DStream可以近似地看作是一个比RDD更高一级的数据结构或者是RDD的序列。</p>
-<p>虽然Spark Streaming声称是进行流数据处理的大数据系统，但从DStream的名称中就可以看出，它本质上仍然是基于批处理的。DStream将数据流进行分片，转化为多个batch，然后使用Spark Engine对这些batch进行处理和分析。</p>
-<p>这里的batch是基于时间间隔来进行分割的，这里的<strong>批处理时间间隔</strong>（batch interval）需要人为确定，每一个batch的数据对应一个RDD实例。</p>
-<h3 id="2-1-Input-DStream"><a href="#2-1-Input-DStream" class="headerlink" title="2.1 Input DStream"></a>2.1 Input DStream</h3><p>Input DStream是一种特殊的DStream，它从外部数据源中获取原始数据流，连接到Spark Streaming中。Input DStream可以接受两种类型的数据输入：</p>
-<p>（1）基本输入源：文件流、套接字连接和Akka Actor。</p>
-<p>（2）高级输入源：Kafka、Flume、Kineis、Twitter等。</p>
-<p>基本输入源可以直接应用于StreamingContext API，而对于高级输入源则需要一些额外的依赖包。</p>
-<p>由于Input DStream要接受外部的数据输入，因此每个Input DStream（不包括文件流）都会对应一个单一的接收器（Receiver）对象，每个接收器对象都对应接受一个数据流输入。由于接收器需要持续运行，因此会占用分配给Spark Streaming的一个核，如果可用的核数不大于接收器的数量，会导致无法对数据进行其他变换操作。</p>
-<h3 id="2-2-DStream-Transformation"><a href="#2-2-DStream-Transformation" class="headerlink" title="2.2 DStream Transformation"></a>2.2 DStream Transformation</h3><p>DStream的转换也和RDD的转换类似，即对于数据对象进行变换、计算等操作，但DStream的Transformation中还有一些特殊的操作，如updateStateByKey()、transform()以及各种Window相关的操作。下面列举了一些主要的DStream操作：</p>
-<table>
-<thead>
-<tr>
-<th>Transformation</th>
-<th>Interpretation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>map(func)</td>
-<td>对DStream中的各个元素进行func函数操作，然后返回一个新的DStream.</td>
-</tr>
-<tr>
-<td>flatMap(func)</td>
-<td>与map方法类似，只不过各个输入项可以被输出为零个或多个输出项.</td>
-</tr>
-<tr>
-<td>filter(func)</td>
-<td>过滤出所有函数func返回值为true的DStream元素并返回一个新的DStream.</td>
-</tr>
-<tr>
-<td>repartition(numPartitions)</td>
-<td>增加或减少DStream中的分区数，从而改变DStream的并行度.</td>
-</tr>
-<tr>
-<td>union(otherStream)</td>
-<td>将源DStream和输入参数为otherDStream的元素合并，并返回一个新的DStream.</td>
-</tr>
-<tr>
-<td>count()</td>
-<td>通过对DStream中的各个RDD中的元素进行计数.</td>
-</tr>
-<tr>
-<td>reduce(func)</td>
-<td>对源DStream中的各个RDD中的元素利用func进行聚合操作，然后返回只有一个元素的RDD构成的新的DStream.</td>
-</tr>
-<tr>
-<td>countByValue()</td>
-<td>对于元素类型为K的DStream，返回一个元素为（K,Long）键值对形式的新的DStream，Long对应的值为源DStream中各个RDD的key出现的次数.</td>
-</tr>
-<tr>
-<td>reduceByKey(func, [numTasks])</td>
-<td>利用func函数对源DStream中的key进行聚合操作，然后返回新的（K，V）对构成的DStream.</td>
-</tr>
-<tr>
-<td>join(otherStream, [numTasks])</td>
-<td>输入为（K,V)、（K,W）类型的DStream，返回一个新的（K，（V，W））类型的DStream.</td>
-</tr>
-<tr>
-<td>cogroup(otherStream, [numTasks])</td>
-<td>输入为（K,V)、（K,W）类型的DStream，返回一个新的 (K, Seq[V], Seq[W]) 元组类型的DStream.</td>
-</tr>
-<tr>
-<td>transform(func)</td>
-<td>通过RDD-to-RDD函数作用于DStream中的各个RDD，返回一个新的RDD.</td>
-</tr>
-<tr>
-<td>updateStateByKey(func)</td>
-<td>根据于key的前置状态和key的新值，对key进行更新，返回一个新状态的DStream.</td>
-</tr>
-</tbody>
-</table>
-<p>Spark Streaming提供了基于窗口（Window）的计算，即可以通过一个滑动窗口，对原始DStream的数据进行转换，得到一个新的DStream。这里涉及到两个参数的设定：</p>
-<p>（1）<strong>窗口长度</strong>（window length）：一个窗口覆盖的流数据的时间长度，必须是批处理时间间隔的倍数。窗口长度决定了一个窗口内包含多少个batch的数据。</p>
-<p>（2）<strong>窗口滑动时间间隔</strong>（slide interval）：前一个窗口到后一个窗口所经过的时间长度，必须是批处理时间间隔的倍数。</p>
-<p><img src="http://f.cangg.cn:81/data/2018112815344144718405.jpg" alt="window-slide-compute"></p>
-<h3 id="2-3-DStream-Output-Operations"><a href="#2-3-DStream-Output-Operations" class="headerlink" title="2.3 DStream Output Operations"></a>2.3 DStream Output Operations</h3><p>DStream的输出操作（Output Operations）可以将DStream的数据输出到外部的数据库或文件系统。与RDD的Action类似，当某个Output Operation被调用时，Spark Streaming程序才会开始真正的计算过程。</p>
-<p>下面列举了一些具体的输出操作：</p>
-<table>
-<thead>
-<tr>
-<th>Output Operations</th>
-<th>Interpretation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>print()</td>
-<td>打印到控制台.</td>
-</tr>
-<tr>
-<td>saveAsTextFiles(prefix, [suffix])</td>
-<td>保存DStream的内容为文本文件，文件名为”prefix-TIME_IN_MS[.suffix]”.</td>
-</tr>
-<tr>
-<td>saveAsObjectFiles(prefix, [suffix])</td>
-<td>保存DStream的内容为SequenceFile，文件名为 “prefix-TIME_IN_MS[.suffix]”.</td>
-</tr>
-<tr>
-<td>saveAsHadoopFiles(prefix, [suffix])</td>
-<td>保存DStream的内容为Hadoop文件，文件名为”prefix-TIME_IN_MS[.suffix]”.</td>
-</tr>
-<tr>
-<td>foreachRDD(func)</td>
-<td>对Dstream里面的每个RDD执行func，并将结果保存到外部系统，如保存到RDD文件中或写入数据库.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-Fault-Tolerance"><a href="#3-Fault-Tolerance" class="headerlink" title="3 Fault Tolerance"></a>3 Fault Tolerance</h2><p>容错（Fault Tolerance）指的是一个系统在部分模块出现故障时仍旧能够提供服务的能力。一个分布式数据处理程序要能够长期不间断运行，这就要求计算模型具有很高的容错性。</p>
-<p>Spark操作的数据一般存储与类似HDFS这样的文件系统上，这些文件系统本身就有容错能力。但是由于Spark Streaming处理的很多数据是通过网络接收的，即接收到数据的时候没有备份，为了让Spark Streaming程序中的RDD都能够具有和普通RDD一样的容错性，这些数据需要被复制到多个Worker节点的Executor内存中。</p>
-<p>Spark Streaming通过检查点（Check Point）的方式来平衡容错能力和代价问题。DStream依赖的RDD是可重复的数据集，每一个RDD从建立之初都记录了每一步的计算过程，如果RDD某个分区由于一些原因数据丢失了，就可以重新执行计算来恢复数据。随着运行时间的增加，数据恢复的代价也会随着计算过程而增加，因此Spark提供了检查点功能，定期记录计算的中间状态，避免数据恢复时的漫长计算过程。Spark Streaming支持两种类型的检查点：</p>
-<p>（1）元数据检查点。这种检查点可以记录Driver的配置、操作以及未完成的批次，可以让Driver节点在失效重启后可以继续运行。</p>
-<p>（2）数据检查点。这种检查点主要用来恢复有状态的转换操作，例如updateStateByKey或者reduceByKeyAndWindow操作，它可以记录数据计算的中间状态，避免在数据恢复时，长依赖链带来的恢复时间的无限增长。</p>
-<p>开启检查点功能需要设置一个可靠的文件系统路径来保存检查点信息，代码如下：</p>
-<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">streamingContext.checkpoing(checkPointDirectory)    <span class="hljs-comment">//参数是文件路径</span></span><br></pre></td></tr></table></figure>
-<p>为了让Driver自动重启时能够开启检查点功能，需要对原始StreamingContext进行简单的修改，创建一个检查检查点目录的函数，代码如下：</p>
-<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">functionToCreateContext</span></span>(): <span class="hljs-type">StreamingContext</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">val</span> ssc = <span class="hljs-keyword">new</span> <span class="hljs-type">StreamingContext</span>(...)</span><br><span class="line">    ssc.checkpoint(checkpointDirecroty)    <span class="hljs-comment">//设置检查点目录</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="hljs-keyword">val</span> lines = ssc.socketTextStream(...)  <span class="hljs-comment">//创建DStream</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//从检查点目录恢复一个StreamingContext或者创建一个新的</span></span><br><span class="line"><span class="hljs-keyword">val</span> ssc = <span class="hljs-type">StreamingContext</span>.getOrCreate(checkpointDirectory,</span><br><span class="line">                                      functionToCreateContext())</span><br><span class="line"><span class="hljs-comment">//启动context</span></span><br><span class="line">context.start()</span><br><span class="line">context.awaitTermination()</span><br></pre></td></tr></table></figure>
-<p>[1] 于俊. Spark核心技术与高级应用[M]. 机械工业出版社, 2016.</p>
-<p>[2] 陈欢林世飞. Spark最佳实践[M].人民邮电出版社, 2016.</p>
-
+        <p>最近在看Spark的相关东西，主要包括Spark的基础知识、Spark Streaming等，写了一些总结。</p>
+        <p class="article-more-link">
+            <a href="/2018/11/28/Spark Streaming基础总结/#more">Read More</a>
+        </p>
     
     </div>
     
@@ -377,10 +258,12 @@
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2019-01-11</span>
+        <span class="column is-narrow">2018-02-03 14:02&nbsp&nbsp&nbsp&nbsp</span>
+        <!--
         <span class="column is-narrow">
             <time datetime="2018-02-03T06:30:00.000Z" itemprop="datePublished">Feb 3 2018</time>
         </span>
+        -->
         
         
     </div>
@@ -388,31 +271,9 @@
     
         <h3 id="字典方法"><a href="#字典方法" class="headerlink" title="字典方法"></a>字典方法</h3><h5 id="5-1-Clear"><a href="#5-1-Clear" class="headerlink" title="5.1 Clear"></a>5.1 Clear</h5><p>clear方法可以清除字典里所有的项，这是个原地操作（类似于list.sort），所以无返回值（或者说返回值为None）。示例代码如下：</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict = &#123;&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict[<span class="hljs-string">'name'</span>] = <span class="hljs-string">'Oythonhill'</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict[<span class="hljs-string">'age'</span>] = <span class="hljs-number">22</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict</span><br><span class="line">&#123;<span class="hljs-string">'age'</span>: <span class="hljs-number">22</span>, <span class="hljs-string">'name'</span>: <span class="hljs-string">'Oythonhill'</span>&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>returned_value = my_dict.clear()</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>my_dict</span><br><span class="line">&#123;&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>print(returned_value)</span><br><span class="line"><span class="hljs-keyword">None</span></span><br></pre></td></tr></table></figure>
-<h5 id="5-2-Copy"><a href="#5-2-Copy" class="headerlink" title="5.2 Copy"></a>5.2 Copy</h5><p>copy方法返回一个具有相同键值对的新字典（浅复制），示例代码如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>x = &#123;<span class="hljs-string">'author'</span>: <span class="hljs-string">'oythonhill'</span>, <span class="hljs-string">'location'</span>: <span class="hljs-string">'beijing'</span>&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>y = x.copy()</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>y[<span class="hljs-string">'author'</span>] = <span class="hljs-string">'pythonhill'</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>y[<span class="hljs-string">'location'</span>] = <span class="hljs-string">'shanghai'</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>y</span><br></pre></td></tr></table></figure>
-<p>mydict.copy()</p>
-<p>copy方法返回mydict的地址副本(Shallow copy)，如果替换了地址副本中值的地址，新旧dict间不会产生影响，但如果对地址副本中地址对应的值作直接修改，则会同时影响新旧dict，其影响可以用deep copy的方法来避免</p>
-<h5 id="5-3-Fromkeys"><a href="#5-3-Fromkeys" class="headerlink" title="5.3 Fromkeys"></a>5.3 Fromkeys</h5><h5 id="5-4-Get"><a href="#5-4-Get" class="headerlink" title="5.4 Get"></a>5.4 Get</h5><p>mydict.get(key,default=?)</p>
-<p>get方法可以用来访问给定键对应的值，若给定键不存在，则会返回默认值。</p>
-<h5 id="5-5-setdefault"><a href="#5-5-setdefault" class="headerlink" title="5.5 setdefault"></a>5.5 setdefault</h5><p>Setdefault</p>
-<p>mydict.setdefault(key=,values=None)</p>
-<p>若给定键存在，返回给定键对应的值，若给定键不存在，返回默认值，并根据给定键和默认值更新字典。</p>
-<h5 id="5-6-Items和Iteritems"><a href="#5-6-Items和Iteritems" class="headerlink" title="5.6 Items和Iteritems"></a>5.6 Items和Iteritems</h5><p>返回一个列表，元素为元组，每个元祖包含一个键和该键的值，示例代码如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>dict = &#123;<span class="hljs-string">'author'</span>: <span class="hljs-string">'oythonhill'</span>, <span class="hljs-string">'location'</span>: <span class="hljs-string">'beijing'</span>&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>dict.items()</span><br><span class="line">[(<span class="hljs-string">'author'</span>,<span class="hljs-string">'oythonhill'</span>), (<span class="hljs-string">'location'</span>,<span class="hljs-string">'beijing'</span>)]</span><br></pre></td></tr></table></figure>
-<p>iteritems方法的作用大致相同，但是会返回一个迭代器对象。</p>
-<h5 id="5-7-Keys和Iterkeys"><a href="#5-7-Keys和Iterkeys" class="headerlink" title="5.7 Keys和Iterkeys"></a>5.7 Keys和Iterkeys</h5><p>keys方法返回一个列表，包含字典所有的键；</p>
-<p>iterkeys方法类似，但返回的是一个迭代器。</p>
-<h5 id="5-8-Values和Itervalues"><a href="#5-8-Values和Itervalues" class="headerlink" title="5.8  Values和Itervalues"></a>5.8  Values和Itervalues</h5><p>vlaues方法返回一个列表，包含字典的所有值；</p>
-<p>itervalues方法类似，返回的是一个迭代器。</p>
-<h5 id="5-9-Pop和Popitem"><a href="#5-9-Pop和Popitem" class="headerlink" title="5.9 Pop和Popitem"></a>5.9 Pop和Popitem</h5><ul>
-<li><p>pop方法用来获得对应于给定键的值，然后将这个键值对从字典中删除，示例代码如下：</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>dict = &#123;<span class="hljs-string">'x'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'y'</span>: <span class="hljs-string">'2'</span>&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>d.pop(<span class="hljs-string">'x'</span>)</span><br><span class="line"><span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>dict</span><br><span class="line">&#123;<span class="hljs-string">'y'</span>: <span class="hljs-string">'2'</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>popitem方法会从字典中随机弹出一项（键值对），类似于list.pop，但list.pop是有序的，popitem是随机的，示例代码如下:</p>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>dict = &#123;<span class="hljs-string">'x'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'y'</span>: <span class="hljs-string">'2'</span>, <span class="hljs-string">'z'</span>: <span class="hljs-string">'3'</span>&#125;</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>dict.popitem()</span><br><span class="line">(<span class="hljs-string">'y'</span>, <span class="hljs-string">'2'</span>)</span><br><span class="line"><span class="hljs-meta">&gt;&gt;&gt; </span>dict</span><br><span class="line">&#123;<span class="hljs-string">'x'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'z'</span>: <span class="hljs-string">'3'</span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
+        <p class="article-more-link">
+            <a href="/2018/02/03/python 字典方法/#more">Read More</a>
+        </p>
     
     </div>
     

@@ -130,10 +130,12 @@
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2019-01-11</span>
+        <span class="column is-narrow">2018-12-19 09:12&nbsp&nbsp&nbsp&nbsp</span>
+        <!--
         <span class="column is-narrow">
             <time datetime="2018-12-19T01:30:00.000Z" itemprop="datePublished">Dec 19 2018</time>
         </span>
+        -->
         
         
     </div>
@@ -141,11 +143,9 @@
     
         <p>Factorization Machine 因子分解机</p>
 <p>一般的线性模型可以表示为：<br>$$y(x)=w_0+\sum_\limits{i=1}^{n}{w_i}x_i$$<br>但是上述模型没有考虑特征间的关联，为表示关联特征对$y$的影响，考虑多项式模型，以$x_iy_i$表示两特征的组合，有如下二阶多项式模型：<br>$$y=w_0+\sum_\limits{i=1}^{n}{w_ix_i}+\sum_limits{i=1}^{n-1}{\sum_\limits{j=i+1}^{n}{w_{ij}x_ix_j}}$$<br>其中，$x_i$表示第$i$个特征，n表示特征的个数。</p>
-<p>由式1可知，组合特征及其参数的的个数为$\frac{n(n-1)}{2}$个，若特征数据很密集，则可以使用传统方法求解。但若在CTR预估等场景中，进行One-Hot Encoding后，特征会变得非常稀疏(Sparse)<br>，满足$x_ix_j$都不为零的记录很少，使用传统方法求解会带来很大的误差。</p>
-<p>观察，由$w_{ij}$组成的矩阵可以表示为</p>
-<p>即对应的$w_{ij}=v_iv_j^T$，可以将$v_i$和$v_j$看作是$x_i$和$x_j$自带的辅助向量，具体地$v_i=(v_{i1},v_{i2},…,v_{ik})$，$v_i$的维度$k$反映了模型的表达能力。<br>因此，二阶多项式模型也可以表示为：<br>$$y(x)=w_0 + \sum_\limits{i=1}^{n}{w_ix_i} + \sum_\limits{i=1}^{n}{\sum_\limits{j=i+1}^{n}{\langle v_i,v_j\rangle x_ix_j}}$$<br>将组合特征的参数$w_{ij}$转化为$\langle v_i,v_j\rangle$，确保了在稀疏的情况下仍然能够求得$w_{ij}$的解，这就是FM的核心思想。</p>
-<p>FM的求解过程……（待补充）</p>
-
+        <p class="article-more-link">
+            <a href="/2018/12/19/FM/#more">Read More</a>
+        </p>
     
     </div>
     
