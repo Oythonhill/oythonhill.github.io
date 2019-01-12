@@ -2,7 +2,7 @@
 <html class="has-navbar-fixed-top">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Factorization Machine 因子分解机 - YHY</title>
+<title>Category: Python应用 - YHY</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
@@ -16,18 +16,17 @@
 
 
 
-    <meta name="description" content="FM主要是给考虑关联特征的线性模型的求解提供一种新的思路。">
-<meta name="keywords" content="算法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Factorization Machine 因子分解机">
-<meta property="og:url" content="http://yoursite.com/2018/12/19/FM/index.html">
+    <meta name="description" content="here is a breif description.">
+<meta name="keywords" content="kkey word">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YHY">
+<meta property="og:url" content="http://yoursite.com/categories/Python应用/index.html">
 <meta property="og:site_name" content="YHY">
-<meta property="og:description" content="FM主要是给考虑关联特征的线性模型的求解提供一种新的思路。">
+<meta property="og:description" content="here is a breif description.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-12T05:02:17.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Factorization Machine 因子分解机">
-<meta name="twitter:description" content="FM主要是给考虑关联特征的线性模型的求解提供一种新的思路。">
+<meta name="twitter:title" content="YHY">
+<meta name="twitter:description" content="here is a breif description.">
 
 
 
@@ -110,77 +109,85 @@
     </div>
 </nav>
 
-    <section class="section">
+    <section class="section section-heading">
     <div class="container">
-    <article class="article content gallery" itemscope="" itemprop="blogPost">
+        <div class="content">
+            <h5><i class="far fa-folder"></i>Python应用</h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+
+        <!--首页个人介绍部分-->
+        <article class="article content gallery" itemscope="blogPost">
+            <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
+                <a href="/about/">  Hongyu Yin </a> 
+            </h1>
+            <div class="article-entry is-size-6-mobile" itemprop="articleBody" style="float:left;width:75%">
+                <p> I'm a postgraduate student studying at CUFE, major in Statistics, supervised by 
+                    <a href="https://feng.li/">Dr.Feng Li</a>.
+                    This is my personal site.
+                    I'm also interested in Data Mining, Machine Learning, etc.
+                </p>
+                <p>
+                    Please see <a href="/about/">"about"</a> to know more about me.
+                </p>
+                <p>
+                    Email: hyhyin@163.com
+                </p>
+            </div> 
+            <div style="float:margin-left">
+                <img class="avatar" src="https://tvax3.sinaimg.cn/crop.6.7.1073.1073.180/ec99fb2fly8fz3p9wcfw2j20u00v6wio.jpg" height="200" width="200">
+            </div>
+            
+        </article>
+
+        
+            <article class="article content gallery" itemscope="" itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         
-            Factorization Machine 因子分解机
+            <a href="/2018/11/29/Python Selenium 快速上手/" itemprop="url">Python Selenium 快速上手</a>
         
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
-        <span class="column is-narrow">2018-12-19 19:12&nbsp&nbsp&nbsp&nbsp</span>
+        <span class="column is-narrow">2018-11-29 19:11&nbsp&nbsp&nbsp&nbsp</span>
         <!--
         <span class="column is-narrow">
-            <time datetime="2018-12-19T11:30:00.000Z" itemprop="datePublished">Dec 19 2018</time>
+            <time datetime="2018-11-29T11:05:00.000Z" itemprop="datePublished">Nov 29 2018</time>
         </span>
         -->
         
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <a class="article-category-link" href="/categories/ML算法/">ML算法</a>
+            <a class="article-category-link" href="/categories/Python应用/">Python应用</a><span>></span><a class="article-category-link" href="/categories/Python应用/Python爬虫/">Python爬虫</a>
         </span>
         
         
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>FM主要是给考虑关联特征的线性模型的求解提供一种新的思路。</p>
-<a id="more"></a>
-<p>一般的线性模型可以表示为：<br>$$y(x)=w_0+\sum_\limits{i=1}^{n}{w_i}x_i$$<br>但是上述模型没有考虑特征间的关联，为表示关联特征对$y$的影响，考虑多项式模型，以$x_iy_i$表示两特征的组合，有如下二阶多项式模型：<br>$$y=w_0+\sum_\limits{i=1}^{n}{w_ix_i}+\sum_limits{i=1}^{n-1}{\sum_\limits{j=i+1}^{n}{w_{ij}x_ix_j}}$$<br>其中，$x_i$表示第$i$个特征，n表示特征的个数。</p>
-<p>由式1可知，组合特征及其参数的的个数为$\frac{n(n-1)}{2}$个，若特征数据很密集，则可以使用传统方法求解。但若在CTR预估等场景中，进行One-Hot Encoding后，特征会变得非常稀疏(Sparse)<br>，满足$x_ix_j$都不为零的记录很少，使用传统方法求解会带来很大的误差。</p>
-<p>观察，由$w_{ij}$组成的矩阵可以表示为</p>
-<p>即对应的$w_{ij}=v_iv_j^T$，可以将$v_i$和$v_j$看作是$x_i$和$x_j$自带的辅助向量，具体地$v_i=(v_{i1},v_{i2},…,v_{ik})$，$v_i$的维度$k$反映了模型的表达能力。<br>因此，二阶多项式模型也可以表示为：<br>$$y(x)=w_0 + \sum_\limits{i=1}^{n}{w_ix_i} + \sum_\limits{i=1}^{n}{\sum_\limits{j=i+1}^{n}{\langle v_i,v_j\rangle x_ix_j}}$$<br>将组合特征的参数$w_{ij}$转化为$\langle v_i,v_j\rangle$，确保了在稀疏的情况下仍然能够求得$w_{ij}$的解，这就是FM的核心思想。</p>
-<p>FM的求解过程……（待补充）</p>
-
+        <p>selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。</p>
+<p>在爬虫领域的应用，主要就是模拟人的操作，打开浏览器，获取网页源码。获得网页源码之后就可以再利用BeautifulSoup、XPath等去解析和提取我们需要的数据了。</p>
+<p>本文主要介绍了Python Selenium的一些基础操作，如打开浏览器、打开网页、网页切换、获取网页源码等操作。</p>
+        <p class="article-more-link">
+            <a href="/2018/11/29/Python Selenium 快速上手/#more">Read More</a>
+        </p>
     
     </div>
     
-    <div class="columns is-variable is-1 is-multiline is-mobile">
-    
-        <span class="column is-narrow"><a class="tag is-light article-tag" href="/tags/算法/">#算法</a></span>
-    
-    </div>
-    
-    
-    <div class="columns is-mobile is-multiline article-nav">
-        <span class="column is-12-mobile is-half-desktop is-hidden-mobile article-nav-prev">
-            
-        </span>
-        <span class="column is-12-mobile is-half-desktop  article-nav-next">
-            
-            <a href="/2018/12/19/Python 字典简介/">Python 字典简介</a>
-            
-        </span>
-    </div>
     
 </article>
 
 
-<div class="sharebox">
-    <!-- 
-<div class="notification is-danger">
-    You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.
-</div>
- -->
-    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a><a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a><a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-</div>
 
 
-
+        
+        
     </div>
 </section>
+
+
     <footer class="footer">
     <div class="container">
         <div class="columns content">
@@ -221,15 +228,15 @@
         <div class="dropdown-menu has-text-left" role="menu">
             <div class="dropdown-content">
             
-                <a href="/2018/12/19/FM/" class="dropdown-item">
+                <a href="/categories/Python应用/index.html" class="dropdown-item">
                     English
                 </a>
             
-                <a href="/ko/2018/12/19/FM/" class="dropdown-item">
+                <a href="/ko/categories/Python应用/index.html" class="dropdown-item">
                     한국어
                 </a>
             
-                <a href="/zh-cn/2018/12/19/FM/" class="dropdown-item">
+                <a href="/zh-cn/categories/Python应用/index.html" class="dropdown-item">
                     简体中文
                 </a>
             
