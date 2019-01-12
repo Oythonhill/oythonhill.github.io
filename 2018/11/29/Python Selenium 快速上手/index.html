@@ -64,7 +64,7 @@
 
 
 </head>
-<body>
+<body bgcolor="#E5E5E5">
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
@@ -135,7 +135,8 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。</p>
+        <div style="font-family:微软雅黑">
+                <p>selenium是用于浏览器测试的自动化工具，可以直接运行在浏览器中，模拟用户的各种操作。</p>
 <p>在爬虫领域的应用，主要就是模拟人的操作，打开浏览器，获取网页源码。获得网页源码之后就可以再利用BeautifulSoup、XPath等去解析和提取我们需要的数据了。</p>
 <p>本文主要介绍了Python Selenium的一些基础操作，如打开浏览器、打开网页、网页切换、获取网页源码等操作。</p>
 <a id="more"></a>
@@ -153,6 +154,7 @@
 <h4 id="5-获取源码"><a href="#5-获取源码" class="headerlink" title="5 获取源码"></a>5 获取源码</h4><p>获取当前页面的网页源码，获得源码之后就可以通过Beautiful或者XPath进行解析了，当然也可以使用Selenium内置的定位元素的一些方法，这个在另外一篇再说<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source_code = browser.page_source</span><br></pre></td></tr></table></figure></p>
 <p>最后，就是关闭标签页或者浏览器<br><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">browser.close() <span class="hljs-comment"># 关闭当前标签页</span></span><br><span class="line">browser.quit() <span class="hljs-comment"># 关闭整个浏览器</span></span><br></pre></td></tr></table></figure></p>
 
+        </div>
     
     </div>
     

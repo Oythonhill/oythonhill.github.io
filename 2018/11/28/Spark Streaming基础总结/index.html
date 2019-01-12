@@ -67,7 +67,7 @@
 
 
 </head>
-<body>
+<body bgcolor="#E5E5E5">
     
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
@@ -138,7 +138,8 @@
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     
-        <p>最近在看Spark的相关东西，主要包括Spark的基础知识、Spark Streaming等，这里作一些总结。</p>
+        <div style="font-family:微软雅黑">
+                <p>最近在看Spark的相关东西，主要包括Spark的基础知识、Spark Streaming等，这里作一些总结。</p>
 <a id="more"></a>
 <h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1  Introduction"></a>1  Introduction</h2><p>从时间维度可以将数据分析分为历史数据的分析和实时数据的分析，例如Hive可以实现对于历史全量数据的计算，但是花费时间往往较长。实际场景中，如“双11”各大电商平台实时计算当前订单的情况时，需要实时对各个订单的数据依次进行采集、分析处理、存储等步骤，对于数据处理的速度要求很高，而且需要保持一段时期内不间断的运行。对于这类问题，Spark通过Spark Streaming组件提供了支持，Spark Streaming可以实现对于高吞吐量、实时的数据流的处理和分析，支持多样化的数据源如Kafka、Flume、HDFS、Kinesis和Twitter等。</p>
 <p><img src="http://f.cangg.cn:81/data/2018112815341070288076.jpg" alt="spark-streaming"></p>
@@ -261,6 +262,7 @@
 <p>[1] 于俊. Spark核心技术与高级应用[M]. 机械工业出版社, 2016.</p>
 <p>[2] 陈欢林世飞. Spark最佳实践[M].人民邮电出版社, 2016.</p>
 
+        </div>
     
     </div>
     
