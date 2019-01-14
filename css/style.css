@@ -57,7 +57,7 @@ a.tag.article-tag {
   margin-bottom: 3rem; }
   .article .article-entry h1, .article .article-entry h2, .article .article-entry h3, .article .article-entry h4, .article .article-entry h5, .article .article-entry h6 {
     /* 对于article文章里的标题h进行格式设定*/
-    font-family: "黑体";
+    font-family: "SimHei";
     color: black;
     font-weight: bold;
     cursor: pointer;
